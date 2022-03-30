@@ -5,7 +5,9 @@
  
  Try changing "table" to "view" below
  */
-{ { config(materialized = 'table') } } with source_data as (
+{ { config(materialized = 'table') } } 
+
+with source_data as (
     SELECT
         c.c_custkey as customer,
         c.c_name as customer_name,
