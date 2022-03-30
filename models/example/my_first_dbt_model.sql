@@ -5,10 +5,9 @@
  
  Try changing "table" to "view" below
  */
-{{ config(materialized='table') }}
-
 
 with source_data as (
+
 SELECT 
 DISTINCT O_ORDERDATE AS ORDERDATE,
 SUM(O_TOTALPRICE) AS CUMULATIVE_ORDER_PRICE
@@ -16,6 +15,7 @@ FROM ORDERS
 GROUP BY ORDERDATE 
 ORDER BY CUMULATIVE_ORDER_PRICE DESC
 LIMIT 10
+
 )
 
 select *
