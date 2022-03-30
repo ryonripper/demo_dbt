@@ -20,4 +20,12 @@ models:
           - unique
           - not_null
   
+  - name: snowflake_customer_purchases
+    description: "sf cust purchases"
+    columns:
+      - name: c_custkey
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
 
