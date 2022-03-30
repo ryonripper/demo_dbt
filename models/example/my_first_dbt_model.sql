@@ -9,13 +9,13 @@
 
 
 with source_data as (
-
-    select 1 as id
-
-    union all
-
-    select null as id
-
+SELECT 
+DISTINCT O_ORDERDATE AS ORDERDATE,
+SUM(O_TOTALPRICE) AS CUMULATIVE_ORDER_PRICE
+FROM ORDERS
+GROUP BY ORDERDATE 
+ORDER BY CUMULATIVE_ORDER_PRICE DESC
+LIMIT 10
 )
 
 select *
