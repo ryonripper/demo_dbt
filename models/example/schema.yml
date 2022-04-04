@@ -19,5 +19,7 @@ models:
         tests:
           - unique
           - not_null
-  
+  - name: accumprice
+  - name: custpurchases
+  - name: incremental_time
 
