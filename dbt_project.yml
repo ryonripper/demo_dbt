@@ -24,6 +24,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_modules"
 
+on-run-end:
+  - 'grant usage on schema dev.DBT_RRIPPER to role analyst'
+  - 'grant select on all tables in schema dev.DBT_RRIPPER to role analyst'
+  - 'grant select on all views in schema dev.DBT_RRIPPER to role analyst'
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -40,3 +44,6 @@ models:
         my_first_variable: True
         my_second_variable: 2020
         my_third_variable: 1
+
+    #  post-hook: 'grant usage on schema {{target.this}} to role accountadmin'
+    #  post-hook: 'grant select on {{this}} to role accountadmin'

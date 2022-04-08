@@ -6,8 +6,9 @@
  Try changing "table" to "view" below
  */
  
-{{ config(materialized='table', alias='first_model') }}
-
+{{ config(materialized='table', alias='first_model'}}
+/* post_hook='grant select on {{this}} to transformer'
+*/
 with source_data as (
 
     select 1 as id
