@@ -28,3 +28,20 @@ models:
 
   - name: incremental_time
 
+sources:
+  - name: sample
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables: 
+      - name: customer
+        columns: 
+          - name: c_custkey
+            tests: 
+              - unique
+              - not_null
+      - name: orders
+
+##run test on sources data to help with debugging 
+
+
+
